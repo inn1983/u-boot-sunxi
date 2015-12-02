@@ -14,7 +14,7 @@
 *~
 *.swp
 *.patch
-*.bin
+#*.bin
 *.cfgtmp
 *.dts.tmp
 
