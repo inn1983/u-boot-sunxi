@@ -198,7 +198,7 @@
 	"loglevel=8\0" \
 	"scriptaddr=0x44000000\0" \
 	"device=mmc\0" \
-	"partition=0:1\0" \
+	"partition=2:1\0" \
 	"setargs=" \
 	  "if test -z \\\\\"$root\\\\\"; then"\
 	    " if test \\\\\"$bootpath\\\\\" = \"/boot/\"; then"\

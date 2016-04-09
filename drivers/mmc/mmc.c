@@ -174,7 +174,7 @@ struct mmc *find_mmc_device(int dev_num)
 {
 	struct mmc *m;
 	struct list_head *entry;
-	printf("in find_mmc_device, dev_num=%d\n", dev_num);
+	//printf("in find_mmc_device, dev_num=%d\n", dev_num);
 	list_for_each(entry, &mmc_devices) {
 		m = list_entry(entry, struct mmc, link);
 
