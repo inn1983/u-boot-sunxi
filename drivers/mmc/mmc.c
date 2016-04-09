@@ -174,7 +174,7 @@ struct mmc *find_mmc_device(int dev_num)
 {
 	struct mmc *m;
 	struct list_head *entry;
-
+	printf("in find_mmc_device, dev_num=%d\n", dev_num);
 	list_for_each(entry, &mmc_devices) {
 		m = list_entry(entry, struct mmc, link);
 
@@ -1298,7 +1298,7 @@ void print_mmc_devices(char separator)
 {
 	struct mmc *m;
 	struct list_head *entry;
-
+	printf("print_mmc_devices!\n");
 	list_for_each(entry, &mmc_devices) {
 		m = list_entry(entry, struct mmc, link);
 
@@ -1312,7 +1312,9 @@ void print_mmc_devices(char separator)
 }
 
 #else
-void print_mmc_devices(char separator) { }
+void print_mmc_devices(char separator) { 
+	 printf("print_mmc_devices_none!\n");
+}
 #endif
 
 int get_mmc_num(void)
@@ -1342,14 +1344,15 @@ static void do_preinit(void)
 int mmc_initialize(bd_t *bis)
 {
 	INIT_LIST_HEAD (&mmc_devices);
-	cur_dev_num = 0;
+	cur_dev_num = 2;
 
 	if (board_mmc_init(bis) < 0)
 		cpu_mmc_init(bis);
-
-#ifndef CONFIG_SPL_BUILD
+	printf("mmc_initialize!\n");
+//#ifndef CONFIG_SPL_BUILD
+	printf("will run print_mmc_devices!\n");
 	print_mmc_devices(',');
-#endif
+//#endif
 
 	do_preinit();
 	return 0;
